@@ -21,14 +21,15 @@ const Box = styled(motion.div)`
 // const Box = styled.div`` <- 예전 사용법
 // const Box = styled(motion.div)``  <- framer 에서 styled-components 사용법
 
+const myVars = {
+  start: { scale: 0 },
+  end: { scale: 1, rotate: 360, transition: { type: "spring", delay: 0.5 } },
+};
+
 function App() {
   return (
     <Wrapper>
-      <Box
-        transition={{ type: "spring", delay: 0.5 }}
-        initial={{ scale: 0 }}
-        animate={{ scale: 1, rotate: 360 }}
-      />
+      <Box variants={myVars} initial="start" animate="end" />
     </Wrapper>
   );
 }
