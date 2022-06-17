@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const Wrapper = styled.div`
@@ -20,14 +20,15 @@ const Box = styled(motion.div)`
 
 function App() {
   const x = useMotionValue(0);
-  useEffect(() => {
-    x.onChange(() => console.log(x.get()));
-  }, [x]);
-  console.log(x);
+  const scale = useTransform(x, [-800, 0, 800], [2, 1, 0.1]);
+  // useEffect(() => {
+  //   //x.onChange(() => console.log(x.get()));
+  //   scale.onChange(() => console.log(scale.get()));
+  // }, [x]);
+  // console.log(x);
   return (
     <Wrapper>
-      <button onClick={() => x.set(200)}>click me</button>
-      <Box style={{ x }} drag="x" dragSnapToOrigin />
+      <Box style={{ x, scale }} drag="x" dragSnapToOrigin />
     </Wrapper>
   );
 }
@@ -35,3 +36,5 @@ function App() {
 export default App;
 
 // motionValue 는 에니메이션값의 상태와 속도를 추적해줌 ( div를 추적해줌 )
+// useTransform 은 값을하나받음
+//이 코드에서는 x의 제한값(-800~800)과 원하는 출력값을 받음
