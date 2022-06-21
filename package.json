@@ -62,5 +62,5 @@
     "@types/react-router-dom": "5.3.1",
     "@types/styled-components": "^5.1.25"
   },
-  "homepage": "https//insidelamp.github.io/nomad_framermotion/"
+  "homepage": "https://insidelamp.github.io/nomad_framermotion"
 }
