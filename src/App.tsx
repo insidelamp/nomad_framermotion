@@ -14,13 +14,17 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path={["/tv", "/tv/:tvId"]}>
+        <Route
+          path={["/nomad_framermotion/tv", "/nomad_framermotion/tv/:tvId"]}
+        >
           <Tv />
         </Route>
-        <Route path="/search">
+        <Route path="/nomad_framermotion/search">
           <Search />
         </Route>
-        <Route path={["/", "/movies/:movieId"]}>
+        <Route
+          path={["/nomad_framermotion/", "/nomad_framermotion/movies/:movieId"]}
+        >
           <Home />
         </Route>
       </Switch>
